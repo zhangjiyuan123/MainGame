@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: b54a319b95803c4429ff27571eb76dc0
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - attackPoint: {instanceID: 0}
+  - attackPrefab: {fileID: 400000, guid: a610653dfbe6c714b8011a57d4c51c7f, type: 2}
+  - Maincam: {instanceID: 0}
+  - MaincamPrefab: {fileID: 100000, guid: 959efdfd70a47b64fba344958e082a20, type: 2}
+  - attackPointPrefab: {fileID: 100000, guid: 4f330e60324438f448a02d2ac0020a75, type: 2}
+  - aimIcon: {fileID: 2800000, guid: 67e757b204795b64d9842aefd1da0d39, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 

@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: bef3413c7977222479686adee7687418
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - swimIdle: {fileID: 7400002, guid: 250737bd5c47262449b10be384cc1dc2, type: 3}
+  - swimForward: {fileID: 7400004, guid: 250737bd5c47262449b10be384cc1dc2, type: 3}
+  - swimRight: {fileID: 7400008, guid: 250737bd5c47262449b10be384cc1dc2, type: 3}
+  - swimLeft: {fileID: 7400006, guid: 250737bd5c47262449b10be384cc1dc2, type: 3}
+  - swimBack: {fileID: 7400022, guid: 250737bd5c47262449b10be384cc1dc2, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 

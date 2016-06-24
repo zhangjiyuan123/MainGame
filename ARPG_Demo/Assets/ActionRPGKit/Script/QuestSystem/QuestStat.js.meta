@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: f28a967ddd989cf4e9ff8a9db186fb85
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - questDataBase: {fileID: 100000, guid: e70b8563d85d39a4ab8e5cadd643d438, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 

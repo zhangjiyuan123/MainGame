@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: b8489e40615cce544b8e3e25c84b4fcf
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - mainModel: {instanceID: 0}
+  - deathBody: {instanceID: 0}
+  - poisonEffect: {fileID: 100000, guid: 3856e6cdad6538a40b37d62ff88eb272, type: 2}
+  - silenceEffect: {fileID: 100000, guid: 44009e57b5d57454aa6b9c285b72f985, type: 2}
+  - stunEffect: {fileID: 100000, guid: 0da96243ef986ba42b2fd621483aa58c, type: 2}
+  - webbedUpEffect: {fileID: 100000, guid: ccec3ce647b2d964f84074e65cb721c9, type: 2}
+  - stunAnimation: {instanceID: 0}
+  - webbedUpAnimation: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
