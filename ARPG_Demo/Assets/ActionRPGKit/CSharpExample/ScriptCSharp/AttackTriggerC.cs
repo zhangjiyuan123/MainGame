@@ -424,8 +424,12 @@ public class AttackTriggerC : MonoBehaviour {
 		}
 		
 	}
+    /// <summary>
+    /// 右下角的技能栏
+    /// </summary>
 	//Hit Bear :P
 	void  OnGUI (){
+       // return;
 		if(aimingType == AimType.Normal){
 			GUI.DrawTexture ( new Rect(Screen.width/2 - 16,Screen.height/2 - 90,aimIconSize,aimIconSize), aimIcon);
 		}
@@ -436,16 +440,32 @@ public class AttackTriggerC : MonoBehaviour {
 		
 		if(skillPrefab[skillEquip] && skillIcon[skillEquip]){
 			GUI.DrawTexture ( new Rect(Screen.width -skillIconSize - 28,Screen.height - skillIconSize - 20,skillIconSize,skillIconSize), skillIcon[skillEquip]);
+            if(GUI.Button(new Rect(Screen.width - skillIconSize - 28, Screen.height - skillIconSize - 20, skillIconSize, skillIconSize),""))
+            {
+                Debug.Log("技能1");
+            }
 		}
 		if(skillPrefab[0] && skillIcon[0]){
 			GUI.DrawTexture ( new Rect(Screen.width -skillIconSize -50,Screen.height - skillIconSize -50,skillIconSize /2,skillIconSize /2), skillIcon[0]);
-		}
+            if (GUI.Button(new Rect(Screen.width - skillIconSize - 50, Screen.height - skillIconSize - 50, skillIconSize / 2, skillIconSize / 2), ""))
+            {
+                Debug.Log("技能2");
+            }
+        }
 		if(skillPrefab[1] && skillIcon[1]){
 			GUI.DrawTexture ( new Rect(Screen.width -skillIconSize -10,Screen.height - skillIconSize -60,skillIconSize /2,skillIconSize /2), skillIcon[1]);
-		}
+            if (GUI.Button(new Rect(Screen.width - skillIconSize - 10, Screen.height - skillIconSize - 60, skillIconSize / 2, skillIconSize / 2), ""))
+            {
+                Debug.Log("技能3");
+            }
+        }
 		if(skillPrefab[2] && skillIcon[2]){
 			GUI.DrawTexture ( new Rect(Screen.width -skillIconSize +30 ,Screen.height - skillIconSize -50,skillIconSize /2,skillIconSize /2), skillIcon[2]);
-		}
+            if (GUI.Button(new Rect(Screen.width - skillIconSize + 30, Screen.height - skillIconSize - 50, skillIconSize / 2, skillIconSize / 2), ""))
+            {
+                Debug.Log("技能4");
+            }
+        }
 	}
 
 
