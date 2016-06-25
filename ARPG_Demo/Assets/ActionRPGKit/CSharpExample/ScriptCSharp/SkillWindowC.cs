@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// 技能栏拖放和安置节能的逻辑 
+/// </summary>
 public class SkillWindowC : MonoBehaviour {
 	
 	public GameObject player;
