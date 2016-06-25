@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ARPG_Demo.CSharp.Plugins", "ARPG_Demo.CSharp.Plugins.csproj", "{029001D3-F2FE-7A3D-04DE-23ED122B62B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ARPG_Demo.CSharp", "ARPG_Demo.CSharp.csproj", "{36C01615-30D0-B26B-6884-22119D1182C4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ARPG_Demo.CSharp.Editor", "ARPG_Demo.CSharp.Editor.csproj", "{703A9C7F-2EE9-4874-3725-7DBA6CF26E59}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{029001D3-F2FE-7A3D-04DE-23ED122B62B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{029001D3-F2FE-7A3D-04DE-23ED122B62B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{029001D3-F2FE-7A3D-04DE-23ED122B62B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{029001D3-F2FE-7A3D-04DE-23ED122B62B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36C01615-30D0-B26B-6884-22119D1182C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36C01615-30D0-B26B-6884-22119D1182C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36C01615-30D0-B26B-6884-22119D1182C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36C01615-30D0-B26B-6884-22119D1182C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{703A9C7F-2EE9-4874-3725-7DBA6CF26E59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{703A9C7F-2EE9-4874-3725-7DBA6CF26E59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{703A9C7F-2EE9-4874-3725-7DBA6CF26E59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{703A9C7F-2EE9-4874-3725-7DBA6CF26E59}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

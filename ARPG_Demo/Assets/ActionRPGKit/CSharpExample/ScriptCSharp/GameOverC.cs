@@ -91,7 +91,7 @@ public class GameOverC : MonoBehaviour {
 				respawn.GetComponent<InventoryC>().EquipItem(PlayerPrefs.GetInt("TempWeaEquip") , respawn.GetComponent<InventoryC>().equipment.Length + 5);
 			}
 			//----------------------------------
-			Screen.lockCursor = true;
+			//Screen.lockCursor = true;
 			//--------------Set Target to Monster---------------
 			GameObject[] mon; 
 			mon = GameObject.FindGameObjectsWithTag("Enemy"); 

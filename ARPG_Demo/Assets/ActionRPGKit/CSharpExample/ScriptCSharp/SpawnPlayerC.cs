@@ -39,11 +39,13 @@ public class SpawnPlayerC : MonoBehaviour {
 		//Check for Main Camera
 		if(mainCam && checkCam){
 			mainCam.GetComponent<ARPGcameraC>().target = spawnPlayer.transform;
-		}/*else if(mainCam){
+        }/*else if(mainCam){
 			Destroy (mainCam.gameObject);
 		}*/
-		
-		Screen.lockCursor = true;
+
+        mainCam.GetComponent<Camera>().fieldOfView = 80.0f;
+
+        Screen.lockCursor = false;
 
         //移动到AI出现的时候 锁定玩家
 		//Set Target for All Enemy to Player

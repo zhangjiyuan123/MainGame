@@ -398,7 +398,7 @@ public class CraftingC : MonoBehaviour {
 		}else if(uiPage >= 1){
 			uiPage = 0;
 			Time.timeScale = 1.0f;
-			Screen.lockCursor = true;
+			//Screen.lockCursor = true;
 		}
 		
 	}

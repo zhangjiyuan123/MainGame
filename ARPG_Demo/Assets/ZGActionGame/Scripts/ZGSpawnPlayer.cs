@@ -52,7 +52,7 @@ public class ZGSpawnPlayer : MonoBehaviour
 			Destroy (mainCam.gameObject);
 		}*/
 
-        Screen.lockCursor = true;
+        //Screen.lockCursor = true;
         //Set Target for All Enemy to Player
         GameObject[] mon;
         mon = GameObject.FindGameObjectsWithTag("Enemy");

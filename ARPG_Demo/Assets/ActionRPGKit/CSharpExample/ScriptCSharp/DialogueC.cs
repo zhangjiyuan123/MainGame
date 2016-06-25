@@ -92,7 +92,7 @@ public class DialogueC : MonoBehaviour {
 	public void  CloseTalk (){
 		showGui = false;
 		Time.timeScale = 1.0f;
-		Screen.lockCursor = true;
+		//Screen.lockCursor = true;
 		s = 0;
 		
 	}

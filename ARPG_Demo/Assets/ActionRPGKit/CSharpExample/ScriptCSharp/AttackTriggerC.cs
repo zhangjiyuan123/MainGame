@@ -98,6 +98,7 @@ public class AttackTriggerC : MonoBehaviour {
     private Animation mAnim = null;
     private Animator mAnimator = null;
     private AudioSource mAudio = null;
+    private ARPGcameraC m_RPGCammer = null;
     /// <summary>
     /// 移动状态
     /// </summary>
@@ -151,15 +152,17 @@ public class AttackTriggerC : MonoBehaviour {
 		GameObject newCam = GameObject.FindWithTag ("MainCamera");
 		newCam = Instantiate(MaincamPrefab, transform.position , transform.rotation) as GameObject;
 		Maincam = newCam.transform;
-		//Maincam.GetComponent<ARPGcameraC>().target = this.transform;
-		// Set Target to ARPG Camera
-    	if(!cameraZoomPoint || aimingType == AimType.Normal){
+        m_RPGCammer = Maincam.GetComponent<ARPGcameraC>();
+        //m_RPGCammer.distance = 6.0f;
+        //m_RPGCammer.target = this.transform;
+        // Set Target to ARPG Camera
+        if (!cameraZoomPoint || aimingType == AimType.Normal){
     		//cameraZoomPoint = this.transform;
-    		Maincam.GetComponent<ARPGcameraC>().target = this.transform;
+    		m_RPGCammer.target = this.transform;
     	}else{
-    		Maincam.GetComponent<ARPGcameraC>().target = cameraZoomPoint;
+    		m_RPGCammer.target = cameraZoomPoint;
     	}
-    	Maincam.GetComponent<ARPGcameraC>().targetBody = this.transform;
+    	m_RPGCammer.targetBody = this.transform;
 
 		str = mStatusC.addAtk;
 		matk = mStatusC.addMatk;
@@ -190,7 +193,7 @@ public class AttackTriggerC : MonoBehaviour {
 			hurt = GetComponent<PlayerAnimationC> ().hurt;
 		}
 		if(aimingType == AimType.Raycast){//Auto Lock On for Raycast Mode
-			Maincam.GetComponent<ARPGcameraC>().lockOn = true;
+			m_RPGCammer.lockOn = true;
 		}
 		GameObject minimap = GameObject.FindWithTag("Minimap");
 			if(minimap){
@@ -241,7 +244,7 @@ public class AttackTriggerC : MonoBehaviour {
 		if(aimingType == AimType.Raycast){
 			Aiming();
 		}else{
-			attackPoint.transform.rotation = Maincam.GetComponent<ARPGcameraC>().aim;
+			attackPoint.transform.rotation = m_RPGCammer.aim;
 		}
         FindClosestEnemy();
 
@@ -531,12 +534,12 @@ public class AttackTriggerC : MonoBehaviour {
 				}
 				
 				nextFire = Time.time + skillDelay;
-				Maincam.GetComponent<ARPGcameraC>().lockOn = true;
+				m_RPGCammer.lockOn = true;
 				//Transform bulletShootout;
 
 				yield return new WaitForSeconds(wait);
 				if(aimingType == AimType.Normal){
-					Maincam.GetComponent<ARPGcameraC>().lockOn = false;
+					m_RPGCammer.lockOn = false;
 				}
 				Transform bulletShootout = Instantiate(skillPrefab[skillID], attackPoint.transform.position , attackPoint.transform.rotation) as Transform;
 				bulletShootout.GetComponent<BulletStatusC>().Setting(str , matk , "Player" , this.gameObject);

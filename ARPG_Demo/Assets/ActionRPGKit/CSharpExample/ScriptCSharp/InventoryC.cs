@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// 背包系统 todo  干掉 以及装备掉落和穿戴逻辑修改  药品疗效看后续需求
+/// </summary>
 public class InventoryC : MonoBehaviour {
 	
 	private bool  menu = false;
@@ -715,7 +718,7 @@ public class InventoryC : MonoBehaviour {
 		}else if(menu){
 			menu = false;
 			Time.timeScale = 1.0f;
-			Screen.lockCursor = true;
+			//Screen.lockCursor = true;
 		}
 		
 	}
