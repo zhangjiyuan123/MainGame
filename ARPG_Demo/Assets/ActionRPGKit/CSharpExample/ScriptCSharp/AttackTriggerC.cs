@@ -248,10 +248,17 @@ public class AttackTriggerC : MonoBehaviour {
 		}
         FindClosestEnemy();
 
+        bool loseTarget = false;
         //自动锁定怪物
         if (!followTarget)
         {
-            return;
+            loseTarget = true;
+            followState = AIState.Idle;
+        }
+        if(!followTarget.gameObject.activeInHierarchy)
+        {
+            loseTarget = true;
+            followState = AIState.Idle;
         }
         //-----------------------------------
 
@@ -318,54 +325,94 @@ public class AttackTriggerC : MonoBehaviour {
         }
         else if (followState == AIState.Pausing)
         {
-            Vector3 destinya = followTarget.position;
-            destinya.y = transform.position.y;
-            transform.LookAt(destinya);
-
-            distance = (transform.position - GetDestination()).magnitude;
-            if (distance > approachDistance)
+            if(loseTarget)
             {
-                followState = AIState.Moving;
+                //丢失了怪物对象呗别人干死 或者异常了
                 if (!useMecanim)
                 {
                     //If using Legacy Animation
-                    mAnim.CrossFade("run",0.2f);//(movingAnimation.name, 0.2f);
+                    mAnim.CrossFade("idle", 0.2f);
                 }
                 else
                 {
-                   // mAnimator.SetBool("runnning", true);
-                    mAnimator.Play("running");
-
+                    // mAnimator.SetBool("running", false);
+                    mAnimator.CrossFade("idle", 0.2f);
+                    mAnimator.SetBool("running", false);
                 }
+                return;
             }
             else
             {
-                canAttack = true;
+                Vector3 destinya = followTarget.position;
+                destinya.y = transform.position.y;
+                transform.LookAt(destinya);
+
+                distance = (transform.position - GetDestination()).magnitude;
+                if (distance > approachDistance)
+                {
+                    followState = AIState.Moving;
+                    if (!useMecanim)
+                    {
+                        //If using Legacy Animation
+                        mAnim.CrossFade("run", 0.2f);//(movingAnimation.name, 0.2f);
+                    }
+                    else
+                    {
+                        // mAnimator.SetBool("runnning", true);
+                        mAnimator.Play("running");
+
+                    }
+                }
+                else
+                {
+                    canAttack = true;
+                }
             }
+            
         }
         //----------------Idle Mode--------------
         else if (followState == AIState.Idle)
         {
-            Vector3 destinyheight = followTarget.position;
-            destinyheight.y = transform.position.y - destinyheight.y;
-            int getHealth = mStatusC.maxHealth - mStatusC.health;
-
-            distance = (transform.position - GetDestination()).magnitude;
-            if (distance < detectRange && Mathf.Abs(destinyheight.y) <= 4 || getHealth > 0)
+            if (loseTarget)
             {
-                followState = AIState.Moving;
+                //丢失了怪物对象呗别人干死 或者异常了
                 if (!useMecanim)
                 {
                     //If using Legacy Animation
-                    mAnim.CrossFade("run", 0.2f);//(movingAnimation.name, 0.2f);
+                    mAnim.CrossFade("idle", 0.2f);
                 }
                 else
                 {
-                  //  mAnimator.SetBool("running", true);
-                    mAnimator.Play("running");
+                    // mAnimator.SetBool("running", false);
+                   // mAnimator.CrossFade("idle",0.1f);
+                    mAnimator.SetBool("running", false);
+                }
+                return;
+            }
+            else
+            {
+                Vector3 destinyheight = followTarget.position;
+                destinyheight.y = transform.position.y - destinyheight.y;
+                int getHealth = mStatusC.maxHealth - mStatusC.health;
 
+                distance = (transform.position - GetDestination()).magnitude;
+                if (distance < detectRange && Mathf.Abs(destinyheight.y) <= 4 || getHealth > 0)
+                {
+                    followState = AIState.Moving;
+                    if (!useMecanim)
+                    {
+                        //If using Legacy Animation
+                        mAnim.CrossFade("run", 0.2f);//(movingAnimation.name, 0.2f);
+                    }
+                    else
+                    {
+                        //  mAnimator.SetBool("running", true);
+                        mAnimator.Play("running");
+
+                    }
                 }
             }
+            
         }
 
         //----------------------------
@@ -620,7 +667,7 @@ public class AttackTriggerC : MonoBehaviour {
         {
             return;
         }
-
+        followTarget = null;
         float distance = Mathf.Infinity;
         float findingradius = detectRange;
 
