@@ -47,9 +47,9 @@ public class ShowEnemyHealthC : MonoBehaviour {
 	void  OnGUI (){
 		if(show){
 			float hpPercent = hp * 100 / maxHp *barMultiply;
-			GUI.DrawTexture( new Rect(Screen.width /2 - borderWidth /2 , 25 , borderWidth, borderHeigh), border);
-	    	GUI.DrawTexture( new Rect(Screen.width /2 - hpBarWidth /2 , hpBarY , hpPercent, hpBarHeight), hpBar);
-	    	GUI.Label ( new Rect(Screen.width /2 - hpBarWidth /2 , hpBarY, hpBarWidth, hpBarHeight), enemyName , textStyle);
+			GUI.DrawTexture( new Rect(Screen.width /2 - borderWidth /2 , Screen.width / 2 + borderHeigh, borderWidth, borderHeigh), border);
+	    	GUI.DrawTexture( new Rect(Screen.width /2 - hpBarWidth /2 , Screen.width / 2 + borderHeigh+3, hpPercent, hpBarHeight), hpBar);
+	    	GUI.Label ( new Rect(Screen.width /2 - hpBarWidth /2, Screen.width / 2 + borderHeigh + 3, hpBarWidth, hpBarHeight), enemyName , textStyle);
 		
 		}
 	
