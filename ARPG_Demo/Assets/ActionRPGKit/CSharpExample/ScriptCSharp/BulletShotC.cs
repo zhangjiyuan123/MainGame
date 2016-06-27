@@ -13,9 +13,15 @@ public class BulletShotC : MonoBehaviour {
 	public GameObject hitEffect;
 	
 	void  Start (){
-		hitEffect = GetComponent<BulletStatusC>().hitEffect;
-		GetComponent<Rigidbody>().isKinematic = true;
-		Destroy (gameObject, duration);
+        BulletStatusC mStatus = GetComponent<BulletStatusC>();
+
+        hitEffect = mStatus.hitEffect;
+        if(mStatus.shooter)
+        {
+            relativeDirection = mStatus.shooter.transform.forward;
+        }
+        GetComponent<Rigidbody>().isKinematic = true;
+        Destroy (gameObject, duration);
 	}
 	
 	

@@ -7,14 +7,14 @@ public class MainGame : MonoBehaviour {
     private DispatchTimer autoFightTimer = null;
 	// Use this for initialization
 	void Start () {
-
-        autoFightTimer = new DispatchTimer("AutoFightTimer", 1000, 0);
-        autoFightTimer.Finished = (s, e) =>
-        {
-            Debug.LogError("自动挂机执行" + (s as DispatchTimer).ModalName);
-            AutoFightManaer();
-        };
-        autoFightTimer.Start();
+// 
+//         autoFightTimer = new DispatchTimer("AutoFightTimer", 1000, 0);
+//         autoFightTimer.Finished = (s, e) =>
+//         {
+//             Debug.LogError("自动挂机执行" + (s as DispatchTimer).ModalName);
+//             AutoFightManaer();
+//         };
+//         autoFightTimer.Start();
        
 
 //         timerManager = ZGDispatchDriver.MInstance;
