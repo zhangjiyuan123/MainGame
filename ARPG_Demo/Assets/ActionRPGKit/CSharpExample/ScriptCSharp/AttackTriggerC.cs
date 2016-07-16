@@ -237,7 +237,29 @@ public class AttackTriggerC : MonoBehaviour
         }
         mAudio = GetComponent<AudioSource>();
     }
-
+     
+    void Start()
+    {
+        //foreach (var btn in VMSkill.instance.BtnsSkill)
+        for (int i = 0; i < VMSkill.instance.BtnsSkill.Count; i++)
+        {
+            var btn = VMSkill.instance.BtnsSkill[i];
+            if (btn != null)
+            {
+                var i1 = i;
+                btn.onClick.AddListener(() =>
+                {
+                    if (skillPrefab[i1] && skillIcon[i1])
+                    {
+                        skillEquip = i1;
+                        canNormalAttack = false;
+                        willSkillAttack = true;
+                    }
+                });
+            }
+        }
+        
+    }
     /// <summary>
     /// 是否可以进行普通攻击
     /// </summary>
@@ -451,7 +473,7 @@ public class AttackTriggerC : MonoBehaviour
                     //  mAnimator.SetBool("running", true);
                     //Debug.Log("5");
                     // mAnimator.Play("running");
-                    mAnimator.SetBool("runnning", true);
+                    mAnimator.SetBool("running", true);
                 }
             }
         }
@@ -493,7 +515,7 @@ public class AttackTriggerC : MonoBehaviour
     //Hit Bear :P
     void OnGUI()
     {
-        // return;
+         return;
         if (aimingType == AimType.Normal)
         {
             GUI.DrawTexture(new Rect(Screen.width / 2 - 16, Screen.height / 2 - 90, aimIconSize, aimIconSize), aimIcon);

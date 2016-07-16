@@ -48,11 +48,7 @@ public class BulletStatusC : MonoBehaviour {
 	
 	public void  Setting ( int str  ,   int mag  ,   string tag  ,   GameObject owner  ){
 		//print ("GuSetLaew");
-		if(AttackType == AtkType.Physic){
-			playerAttack = str;
-		}else{
-			playerAttack = mag;
-		}
+		playerAttack = AttackType == AtkType.Physic ? str : mag;
 		shooterTag = tag;
 		shooter = owner;
 		int varMin = 100 - variance;
