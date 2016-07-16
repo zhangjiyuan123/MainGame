@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+/// <summary>
+/// 角色跟随的相机 
+/// </summary>
 public class ARPGcameraC : MonoBehaviour {
 	
 	public Transform target;
