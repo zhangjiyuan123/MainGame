@@ -54,9 +54,9 @@ public class GameOverC : MonoBehaviour {
 			respawn.GetComponent<StatusC>().mdef = PlayerPrefs.GetInt("TempPlayerMDEF");
 			respawn.GetComponent<StatusC>().exp = PlayerPrefs.GetInt("TempPlayerEXP");
 			respawn.GetComponent<StatusC>().maxExp = PlayerPrefs.GetInt("TempPlayerMaxEXP");
-			respawn.GetComponent<StatusC>().maxHealth = PlayerPrefs.GetInt("TempPlayerMaxHP");
+			respawn.GetComponent<StatusC>().MaxHealth = PlayerPrefs.GetInt("TempPlayerMaxHP");
 			//respawn.GetComponent<StatusC>().health = PlayerPrefs.GetInt("PlayerHP");
-			respawn.GetComponent<StatusC>().health = PlayerPrefs.GetInt("TempPlayerMaxHP");
+			respawn.GetComponent<StatusC>().Health = PlayerPrefs.GetInt("TempPlayerMaxHP");
 			respawn.GetComponent<StatusC>().maxMana = PlayerPrefs.GetInt("TempPlayerMaxMP");
 			respawn.GetComponent<StatusC>().mana = PlayerPrefs.GetInt("TempPlayerMaxMP");	
 			respawn.GetComponent<StatusC>().statusPoint = PlayerPrefs.GetInt("TempPlayerSTP");

@@ -39,7 +39,7 @@ public class ShowEnemyHealthC : MonoBehaviour {
 		 if(show && !target){
 		 	hp = 0;
 		 }else if(show && target){
-		 	hp = target.GetComponent<StatusC>().health;
+		 	hp = target.GetComponent<StatusC>().Health;
 		 }
 	
 	}

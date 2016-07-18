@@ -134,7 +134,7 @@ public class AIsetC : MonoBehaviour {
 				StartCoroutine(Attack());
 			}else if ((followTarget.position - transform.position).magnitude >= lostSight)
 			{//Lost Sight
-				stat.health = stat.maxHealth;
+				stat.Health = stat.MaxHealth;
 				followState = AIState.Idle;
 				if(!useMecanim){
                     //If using Legacy Animation
@@ -171,7 +171,7 @@ public class AIsetC : MonoBehaviour {
 		else if (followState == AIState.Idle){
 			Vector3 destinyheight = followTarget.position;
 			destinyheight.y = transform.position.y - destinyheight.y;
-			int getHealth = stat.maxHealth - stat.health;
+			int getHealth = stat.MaxHealth - stat.Health;
 			
 			distance = (transform.position - GetDestination()).magnitude;
 			if (distance < detectRange && Mathf.Abs(destinyheight.y) <= 4 || getHealth > 0){
@@ -191,7 +191,7 @@ public class AIsetC : MonoBehaviour {
 		if(stability){
 			return;
 		}
-		if(hurtVoice && stat.health >= 1){
+		if(hurtVoice && stat.Health >= 1){
 			mAudio.clip = hurtVoice;
 			mAudio.Play();
 		}
@@ -317,7 +317,7 @@ public class AIsetC : MonoBehaviour {
 		float distance = Mathf.Infinity;
 		float findingradius = detectRange;
 
-		if(stat.health < stat.maxHealth){
+		if(stat.Health < stat.MaxHealth){
 			findingradius += lostSight + 3.0f;
 		}
 		

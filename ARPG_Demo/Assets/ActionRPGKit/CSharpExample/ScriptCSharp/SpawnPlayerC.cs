@@ -7,7 +7,7 @@ public class SpawnPlayerC : MonoBehaviour {
 	//GameObject mainCamPrefab;
 	private Transform mainCam;
 	
-	void  Start (){
+	void  Awake (){
 		//Check for Current Player in the scene
 		GameObject currentPlayer = GameObject.FindWithTag ("Player");
 		if(currentPlayer){

@@ -71,7 +71,7 @@ public class BulletStatusC : MonoBehaviour {
 				popDamage = other.GetComponent<StatusC>().OnMagicDamage(totalDamage , (int)element);
 			}
 			if(shooter && shooter.GetComponent<ShowEnemyHealthC>()){
-	    		shooter.GetComponent<ShowEnemyHealthC>().GetHP(other.GetComponent<StatusC>().maxHealth , other.gameObject , other.name);
+	    		shooter.GetComponent<ShowEnemyHealthC>().GetHP(other.GetComponent<StatusC>().MaxHealth , other.gameObject , other.name);
 	    	}
 			dmgPop.GetComponent<DamagePopupC>().damage = popDamage;	
 			

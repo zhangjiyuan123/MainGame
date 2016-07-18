@@ -12,9 +12,9 @@ public class StatusC : MonoBehaviour {
 	public int mdef = 0;
 	public int exp = 0;
 	public int maxExp = 100;
-	public int maxHealth = 100;
-	public int health = 100;
-	public int maxMana = 100;
+    private int maxHealth = 100;
+    private int health = 100;
+    public int maxMana = 100;
 	public int mana = 100;
 	public int statusPoint = 0;
 	private bool  dead = false;
@@ -105,8 +105,34 @@ public class StatusC : MonoBehaviour {
 	public resist statusResist;
 	[HideInInspector]
 	public bool useMecanim = false;
-	
-	public string OnDamage ( int amount  ,   int element  ){	
+
+    public int MaxHealth
+    {
+        get
+        {
+            return maxHealth;
+        }
+
+        set
+        {
+            maxHealth = value;
+        }
+    }
+
+    public int Health
+    {
+        get
+        {
+            return health;
+        }
+
+        set
+        {
+            health = value;
+        }
+    }
+
+    public string OnDamage ( int amount  ,   int element  ){	
 		if (!dead) {
 			if(dodge){
 				return "Evaded";
@@ -123,10 +149,10 @@ public class StatusC : MonoBehaviour {
 					amount = 1;
 			}
 		
-			health -= amount;
+			Health -= amount;
 		
-			if (health <= 0) {
-					health = 0;
+			if (Health <= 0) {
+					Health = 0;
 					enabled = false;
 					dead = true;
 					Death ();
@@ -153,10 +179,10 @@ public class StatusC : MonoBehaviour {
 				amount = 1;
 			}
 		
-			health -= amount;
+			Health -= amount;
 		
-			if (health <= 0){
-				health = 0;
+			if (Health <= 0){
+				Health = 0;
 				enabled = false;
 				dead = true;
 				Death();
@@ -166,9 +192,9 @@ public class StatusC : MonoBehaviour {
 	}
 	
 	public void  Heal ( int hp  ,   int mp  ){
-		health += hp;
-		if (health >= maxHealth){
-			health = maxHealth;
+		Health += hp;
+		if (Health >= MaxHealth){
+			Health = MaxHealth;
 		}
 		
 		mana += mp;
@@ -205,10 +231,10 @@ public class StatusC : MonoBehaviour {
 		statusPoint += 5;
 		//Extend the Max EXP, Max Health and Max Mana
 		maxExp = 125 * maxExp  / 100;
-		maxHealth += 20;
+		MaxHealth += 20;
 		maxMana += 10;
 		//Recover Health and Mana
-		health = maxHealth;
+		Health = MaxHealth;
 		mana = maxMana;
 		gainEXP(0);
 		if(GetComponent<SkillWindowC>()){
@@ -227,7 +253,7 @@ public class StatusC : MonoBehaviour {
 		PlayerPrefs.SetInt("TempPlayerMDEF", mdef);
 		PlayerPrefs.SetInt("TempPlayerEXP", exp);
 		PlayerPrefs.SetInt("TempPlayerMaxEXP", maxExp);
-		PlayerPrefs.SetInt("TempPlayerMaxHP", maxHealth);
+		PlayerPrefs.SetInt("TempPlayerMaxHP", MaxHealth);
 		PlayerPrefs.SetInt("TempPlayerMaxMP", maxMana);
 		PlayerPrefs.SetInt("TempPlayerSTP", statusPoint);
 		
@@ -293,12 +319,12 @@ public class StatusC : MonoBehaviour {
 		addMatk = 0;
 		addMatk += matk + buffMatk + weaponMatk;
 		//addMdef += mdef;
-		int hpPer = maxHealth * addHPpercent / 100;
+		int hpPer = MaxHealth * addHPpercent / 100;
 		int mpPer = maxMana * addMPpercent / 100;
-		maxHealth += hpPer;
+		MaxHealth += hpPer;
 		maxMana += mpPer;
-		if (health >= maxHealth){
-			health = maxHealth;
+		if (Health >= MaxHealth){
+			Health = MaxHealth;
 		}
 		if (mana >= maxMana){
 			mana = maxMana;
@@ -317,7 +343,7 @@ public class StatusC : MonoBehaviour {
 				int per= Random.Range(0, 100);
 				if(per <= chance){
 					poison = true;
-					amount = maxHealth * 2 / 100; // Hurt 2% of Max HP
+					amount = MaxHealth * 2 / 100; // Hurt 2% of Max HP
 				}
 			
 			}
@@ -328,10 +354,10 @@ public class StatusC : MonoBehaviour {
 					eff.transform.parent = transform;
 				}
 				yield return new WaitForSeconds(0.7f); // Reduce HP  Every 0.7f Seconds
-				health -= amount;
+				Health -= amount;
 			
-				if (health <= 1){
-					health = 1;
+				if (Health <= 1){
+					Health = 1;
 				}
 				if(eff){ //Destroy Effect if it still on a map
 					Destroy(eff.gameObject);

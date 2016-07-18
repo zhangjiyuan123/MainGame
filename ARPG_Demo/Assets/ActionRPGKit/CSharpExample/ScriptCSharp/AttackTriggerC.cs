@@ -283,7 +283,7 @@ public class AttackTriggerC : MonoBehaviour
             return;
         }
 
-        if (mStatusC.health < 1)
+        if (mStatusC.Health < 1)
         {
             return;
         }
@@ -369,7 +369,7 @@ public class AttackTriggerC : MonoBehaviour
                 {
                     // mAnimator.SetBool("running", false);
                     //  mAnimator.CrossFade("idle", 0.2f);
-                    Debug.Log("1");
+                   // Debug.Log("1");
                     mAnimator.SetBool("running", false);
                 }
                 //----Attack----
@@ -379,7 +379,7 @@ public class AttackTriggerC : MonoBehaviour
             }
             else if ((followTarget.position - transform.position).magnitude >= lostSight)
             {//Lost Sight 暂时没有主角失去视野的选项
-                mStatusC.health = mStatusC.maxHealth;
+                mStatusC.Health = mStatusC.MaxHealth;
                 followState = AIState.Idle;
                 if (!useMecanim)
                 {
@@ -457,7 +457,7 @@ public class AttackTriggerC : MonoBehaviour
 
             Vector3 destinyheight = followTarget.position;
             destinyheight.y = transform.position.y - destinyheight.y;
-            int getHealth = mStatusC.maxHealth - mStatusC.health;
+            int getHealth = mStatusC.MaxHealth - mStatusC.Health;
 
             distance = (transform.position - GetDestination()).magnitude;
             if (distance < detectRange && Mathf.Abs(destinyheight.y) <= 4 || getHealth > 0)
@@ -735,7 +735,7 @@ public class AttackTriggerC : MonoBehaviour
 
     public void Flinch(Vector3 dir)
     {
-        if (sound.hurtVoice && mStatusC.health >= 1)
+        if (sound.hurtVoice && mStatusC.Health >= 1)
         {
             mAudio.clip = sound.hurtVoice;
             mAudio.Play();
@@ -802,7 +802,7 @@ public class AttackTriggerC : MonoBehaviour
         // Find all game objects with tag Enemy
 
         //如果当前对象没死 就不进行搜索
-        if (targetStatC != null && targetStatC.health > 0)
+        if (targetStatC != null && targetStatC.Health > 0)
         {
             return;
         }

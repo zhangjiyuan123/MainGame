@@ -107,7 +107,7 @@ public class StatusWindowC : MonoBehaviour {
 			}
 			if (GUI.Button ( new Rect(200,100,25,25), "+") && stPoint > 0) {
 				GetComponent<StatusC>().def += 1;
-				GetComponent<StatusC>().maxHealth += 5;
+				GetComponent<StatusC>().MaxHealth += 5;
 				GetComponent<StatusC>().statusPoint -= 1;
 				GetComponent<StatusC>().CalculateStatus();
 			}

@@ -84,8 +84,8 @@ public class SaveLoadC : MonoBehaviour {
 		PlayerPrefs.SetInt("PlayerMDEF" +saveSlot.ToString(), player.GetComponent<StatusC>().mdef);
 		PlayerPrefs.SetInt("PlayerEXP" +saveSlot.ToString(), player.GetComponent<StatusC>().exp);
 		PlayerPrefs.SetInt("PlayerMaxEXP" +saveSlot.ToString(), player.GetComponent<StatusC>().maxExp);
-		PlayerPrefs.SetInt("PlayerMaxHP" +saveSlot.ToString(), player.GetComponent<StatusC>().maxHealth);
-		PlayerPrefs.SetInt("PlayerHP" +saveSlot.ToString(), player.GetComponent<StatusC>().health);
+		PlayerPrefs.SetInt("PlayerMaxHP" +saveSlot.ToString(), player.GetComponent<StatusC>().MaxHealth);
+		PlayerPrefs.SetInt("PlayerHP" +saveSlot.ToString(), player.GetComponent<StatusC>().Health);
 		PlayerPrefs.SetInt("PlayerMaxMP" +saveSlot.ToString(), player.GetComponent<StatusC>().maxMana);
 		//	PlayerPrefs.SetInt("PlayerMP", player.GetComponent<StatusC>().mana);
 		PlayerPrefs.SetInt("PlayerSTP" +saveSlot.ToString(), player.GetComponent<StatusC>().statusPoint);
@@ -165,8 +165,8 @@ public class SaveLoadC : MonoBehaviour {
 		respawn.GetComponent<StatusC>().mdef = PlayerPrefs.GetInt("PlayerMDEF" +saveSlot.ToString());
 		respawn.GetComponent<StatusC>().exp = PlayerPrefs.GetInt("PlayerEXP" +saveSlot.ToString());
 		respawn.GetComponent<StatusC>().maxExp = PlayerPrefs.GetInt("PlayerMaxEXP" +saveSlot.ToString());
-		respawn.GetComponent<StatusC>().maxHealth = PlayerPrefs.GetInt("PlayerMaxHP" +saveSlot.ToString());
-		respawn.GetComponent<StatusC>().health = PlayerPrefs.GetInt("PlayerHP" +saveSlot.ToString());
+		respawn.GetComponent<StatusC>().MaxHealth = PlayerPrefs.GetInt("PlayerMaxHP" +saveSlot.ToString());
+		respawn.GetComponent<StatusC>().Health = PlayerPrefs.GetInt("PlayerHP" +saveSlot.ToString());
 		//respawn.GetComponent<StatusC>().health = PlayerPrefs.GetInt("PlayerMaxHP");
 		respawn.GetComponent<StatusC>().maxMana = PlayerPrefs.GetInt("PlayerMaxMP" +saveSlot.ToString());
 		respawn.GetComponent<StatusC>().mana = PlayerPrefs.GetInt("PlayerMaxMP" +saveSlot.ToString());	
@@ -270,8 +270,8 @@ public class SaveLoadC : MonoBehaviour {
 		player.GetComponent<StatusC>().mdef = PlayerPrefs.GetInt("PlayerMDEF" +saveSlot.ToString());
 		player.GetComponent<StatusC>().exp = PlayerPrefs.GetInt("PlayerEXP" +saveSlot.ToString());
 		player.GetComponent<StatusC>().maxExp = PlayerPrefs.GetInt("PlayerMaxEXP" +saveSlot.ToString());
-		player.GetComponent<StatusC>().maxHealth = PlayerPrefs.GetInt("PlayerMaxHP" +saveSlot.ToString());
-		player.GetComponent<StatusC>().health = PlayerPrefs.GetInt("PlayerMaxHP" +saveSlot.ToString());
+		player.GetComponent<StatusC>().MaxHealth = PlayerPrefs.GetInt("PlayerMaxHP" +saveSlot.ToString());
+		player.GetComponent<StatusC>().Health = PlayerPrefs.GetInt("PlayerMaxHP" +saveSlot.ToString());
 		player.GetComponent<StatusC>().maxMana = PlayerPrefs.GetInt("PlayerMaxMP" +saveSlot.ToString());
 		player.GetComponent<StatusC>().mana = PlayerPrefs.GetInt("PlayerMaxMP" +saveSlot.ToString());	
 		player.GetComponent<StatusC>().statusPoint = PlayerPrefs.GetInt("PlayerSTP" +saveSlot.ToString());

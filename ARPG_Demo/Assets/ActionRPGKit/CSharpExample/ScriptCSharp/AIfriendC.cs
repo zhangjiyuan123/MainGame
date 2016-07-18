@@ -187,7 +187,7 @@ public class AIfriendC : MonoBehaviour {
 				StartCoroutine(Attack());
 			}else if ((followTarget.position - transform.position).magnitude >= lostSight)
 			{//Lost Sight
-				GetComponent<StatusC>().health = GetComponent<StatusC>().maxHealth;
+				GetComponent<StatusC>().Health = GetComponent<StatusC>().MaxHealth;
 				followState = AIStatef.Idle;
 				//mainModel.animation.CrossFade(idleAnimation.name, 0.2ff);
 				if(!useMecanim){
@@ -409,7 +409,7 @@ public class AIfriendC : MonoBehaviour {
 		if(stability){
 			return;
 		}
-		if(hurtVoice && GetComponent<StatusC>().health >= 1){
+		if(hurtVoice && GetComponent<StatusC>().Health >= 1){
 			GetComponent<AudioSource>().clip = hurtVoice;
 			GetComponent<AudioSource>().Play();
 		}

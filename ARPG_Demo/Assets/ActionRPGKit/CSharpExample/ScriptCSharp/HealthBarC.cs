@@ -35,15 +35,15 @@ public class HealthBarC : MonoBehaviour {
 		if(!player){
 			return;
 		}
-		float maxHp = player.GetComponent<StatusC>().maxHealth;
-		float hp = player.GetComponent<StatusC>().health * 100 / maxHp *barMultiply;
+		float maxHp = player.GetComponent<StatusC>().MaxHealth;
+		float hp = player.GetComponent<StatusC>().Health * 100 / maxHp *barMultiply;
 		float maxMp = player.GetComponent<StatusC>().maxMana;
 		float mp = player.GetComponent<StatusC>().mana * 100 / maxMp *barMultiply;
 		float maxExp = player.GetComponent<StatusC>().maxExp;
 		float exp = player.GetComponent<StatusC>().exp * 100 / maxExp *barMultiply;
 		float lv = player.GetComponent<StatusC>().level;
 		
-		int currentHp = player.GetComponent<StatusC>().health;
+		int currentHp = player.GetComponent<StatusC>().Health;
 		int currentMp = player.GetComponent<StatusC>().mana;
 		
 		GUI.DrawTexture( new Rect(maxHpBarPosition.x ,maxHpBarPosition.y ,maxHpBarWidth,maxHpBarHeigh), maxHpBar);
