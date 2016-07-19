@@ -632,7 +632,8 @@ public class AttackTriggerC : MonoBehaviour
 
                 nextFire = Time.time + attackSpeed;
                 bulletShootout = Instantiate(attackPrefab, attackPoint.transform.position, attackPoint.transform.rotation) as Transform;
-                bulletShootout.GetComponent<BulletStatusC>().Setting(str, matk, "Player", this.gameObject);
+                if (bulletShootout != null)
+                    bulletShootout.GetComponent<BulletStatusC>().Setting(str, matk, "Player", this.gameObject);
                 conCombo -= 1;
 
                 if (c >= attackCombo.Length)
@@ -678,7 +679,7 @@ public class AttackTriggerC : MonoBehaviour
             str = mStatusC.addAtk;
             matk = mStatusC.addMatk;
 
-            if (mStatusC.mana > manaCost[skillID] && !mStatusC.silence)
+            if (mStatusC.Mana > manaCost[skillID] && !mStatusC.silence)
             {
                 if (sound.magicCastVoice)
                 {
@@ -719,7 +720,7 @@ public class AttackTriggerC : MonoBehaviour
                 yield return new WaitForSeconds(skillDelay);
                 isCasting = false;
                 cmc.canControl = true;
-                mStatusC.mana -= manaCost[skillID];
+                mStatusC.Mana -= manaCost[skillID];
                 willSkillAttack = false;
             }
             else

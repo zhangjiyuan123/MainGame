@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+public delegate void OnChangeDataValue(int cur, int ori);
+
 public class StatusC : MonoBehaviour {
 
 	public string characterName = "";
@@ -14,9 +16,9 @@ public class StatusC : MonoBehaviour {
 	public int maxExp = 100;
     private int maxHealth = 100;
     private int health = 100;
-    public int maxMana = 100;
-	public int mana = 100;
-	public int statusPoint = 0;
+    private int maxMana = 100;
+    private int mana = 100;
+    public int statusPoint = 0;
 	private bool  dead = false;
 	
 	[HideInInspector]
@@ -106,6 +108,10 @@ public class StatusC : MonoBehaviour {
 	[HideInInspector]
 	public bool useMecanim = false;
 
+    /// <summary>
+    /// 生命变化
+    /// </summary>
+    public OnChangeDataValue onChangeHealth = null;
     public int MaxHealth
     {
         get
@@ -116,9 +122,15 @@ public class StatusC : MonoBehaviour {
         set
         {
             maxHealth = value;
+            if (onChangeHealth!=null)
+            {
+                onChangeHealth(health,maxHealth);
+            }
         }
     }
-
+    /// <summary>
+    /// 当前生命值
+    /// </summary>
     public int Health
     {
         get
@@ -129,6 +141,43 @@ public class StatusC : MonoBehaviour {
         set
         {
             health = value;
+            if (onChangeHealth != null)
+            {
+                onChangeHealth(health, maxHealth);
+            }
+        }
+    }
+
+    public OnChangeDataValue onChangeMp = null;
+
+    /// <summary>
+    /// 最大魔法值
+    /// </summary>
+    public int MaxMana
+    {
+        get
+        {
+            return maxMana;
+        }
+
+        set
+        {
+            maxMana = value;
+        }
+    }
+    /// <summary>
+    /// 当前魔法值
+    /// </summary>
+    public int Mana
+    {
+        get
+        {
+            return mana;
+        }
+
+        set
+        {
+            mana = value;
         }
     }
 
@@ -197,9 +246,9 @@ public class StatusC : MonoBehaviour {
 			Health = MaxHealth;
 		}
 		
-		mana += mp;
-		if (mana >= maxMana){
-			mana = maxMana;
+		Mana += mp;
+		if (Mana >= MaxMana){
+			Mana = MaxMana;
 		}
 	}
 	
@@ -232,10 +281,10 @@ public class StatusC : MonoBehaviour {
 		//Extend the Max EXP, Max Health and Max Mana
 		maxExp = 125 * maxExp  / 100;
 		MaxHealth += 20;
-		maxMana += 10;
+		MaxMana += 10;
 		//Recover Health and Mana
 		Health = MaxHealth;
-		mana = maxMana;
+		Mana = MaxMana;
 		gainEXP(0);
 		if(GetComponent<SkillWindowC>()){
 			GetComponent<SkillWindowC>().LearnSkillByLevel(level);
@@ -254,7 +303,7 @@ public class StatusC : MonoBehaviour {
 		PlayerPrefs.SetInt("TempPlayerEXP", exp);
 		PlayerPrefs.SetInt("TempPlayerMaxEXP", maxExp);
 		PlayerPrefs.SetInt("TempPlayerMaxHP", MaxHealth);
-		PlayerPrefs.SetInt("TempPlayerMaxMP", maxMana);
+		PlayerPrefs.SetInt("TempPlayerMaxMP", MaxMana);
 		PlayerPrefs.SetInt("TempPlayerSTP", statusPoint);
 		
 		PlayerPrefs.SetInt("TempCash", GetComponent<InventoryC>().cash);
@@ -320,14 +369,14 @@ public class StatusC : MonoBehaviour {
 		addMatk += matk + buffMatk + weaponMatk;
 		//addMdef += mdef;
 		int hpPer = MaxHealth * addHPpercent / 100;
-		int mpPer = maxMana * addMPpercent / 100;
+		int mpPer = MaxMana * addMPpercent / 100;
 		MaxHealth += hpPer;
-		maxMana += mpPer;
+		MaxMana += mpPer;
 		if (Health >= MaxHealth){
 			Health = MaxHealth;
 		}
-		if (mana >= maxMana){
-			mana = maxMana;
+		if (Mana >= MaxMana){
+			Mana = MaxMana;
 		}
 	}
 

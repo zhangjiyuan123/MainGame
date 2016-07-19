@@ -59,9 +59,14 @@ public class VMHealthBarHero : MonoBehaviour
         _txtLevel = this.transform.FindChild("Txt_Level").GetComponent<Text>();
     }
     // Use this for initialization
-    void Start () {
-	
-	}
+    void Start ()
+    {
+        StatusManager.instance.MainPlayer.onChangeHealth = (h, m) =>
+        {
+            // ReSharper disable once PossibleLossOfFraction
+            _imgHp.fillAmount = h/(m*1.0f);
+        };
+    }
 	
 	// Update is called once per frame
 	void Update () {

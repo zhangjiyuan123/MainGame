@@ -86,7 +86,7 @@ public class SaveLoadC : MonoBehaviour {
 		PlayerPrefs.SetInt("PlayerMaxEXP" +saveSlot.ToString(), player.GetComponent<StatusC>().maxExp);
 		PlayerPrefs.SetInt("PlayerMaxHP" +saveSlot.ToString(), player.GetComponent<StatusC>().MaxHealth);
 		PlayerPrefs.SetInt("PlayerHP" +saveSlot.ToString(), player.GetComponent<StatusC>().Health);
-		PlayerPrefs.SetInt("PlayerMaxMP" +saveSlot.ToString(), player.GetComponent<StatusC>().maxMana);
+		PlayerPrefs.SetInt("PlayerMaxMP" +saveSlot.ToString(), player.GetComponent<StatusC>().MaxMana);
 		//	PlayerPrefs.SetInt("PlayerMP", player.GetComponent<StatusC>().mana);
 		PlayerPrefs.SetInt("PlayerSTP" +saveSlot.ToString(), player.GetComponent<StatusC>().statusPoint);
 		
@@ -168,8 +168,8 @@ public class SaveLoadC : MonoBehaviour {
 		respawn.GetComponent<StatusC>().MaxHealth = PlayerPrefs.GetInt("PlayerMaxHP" +saveSlot.ToString());
 		respawn.GetComponent<StatusC>().Health = PlayerPrefs.GetInt("PlayerHP" +saveSlot.ToString());
 		//respawn.GetComponent<StatusC>().health = PlayerPrefs.GetInt("PlayerMaxHP");
-		respawn.GetComponent<StatusC>().maxMana = PlayerPrefs.GetInt("PlayerMaxMP" +saveSlot.ToString());
-		respawn.GetComponent<StatusC>().mana = PlayerPrefs.GetInt("PlayerMaxMP" +saveSlot.ToString());	
+		respawn.GetComponent<StatusC>().MaxMana = PlayerPrefs.GetInt("PlayerMaxMP" +saveSlot.ToString());
+		respawn.GetComponent<StatusC>().Mana = PlayerPrefs.GetInt("PlayerMaxMP" +saveSlot.ToString());	
 		respawn.GetComponent<StatusC>().statusPoint = PlayerPrefs.GetInt("PlayerSTP" +saveSlot.ToString());
 		mainCam = GameObject.FindWithTag ("MainCamera").transform;
 		mainCam.GetComponent<ARPGcameraC>().target = respawn.transform;
@@ -272,8 +272,8 @@ public class SaveLoadC : MonoBehaviour {
 		player.GetComponent<StatusC>().maxExp = PlayerPrefs.GetInt("PlayerMaxEXP" +saveSlot.ToString());
 		player.GetComponent<StatusC>().MaxHealth = PlayerPrefs.GetInt("PlayerMaxHP" +saveSlot.ToString());
 		player.GetComponent<StatusC>().Health = PlayerPrefs.GetInt("PlayerMaxHP" +saveSlot.ToString());
-		player.GetComponent<StatusC>().maxMana = PlayerPrefs.GetInt("PlayerMaxMP" +saveSlot.ToString());
-		player.GetComponent<StatusC>().mana = PlayerPrefs.GetInt("PlayerMaxMP" +saveSlot.ToString());	
+		player.GetComponent<StatusC>().MaxMana = PlayerPrefs.GetInt("PlayerMaxMP" +saveSlot.ToString());
+		player.GetComponent<StatusC>().Mana = PlayerPrefs.GetInt("PlayerMaxMP" +saveSlot.ToString());	
 		player.GetComponent<StatusC>().statusPoint = PlayerPrefs.GetInt("PlayerSTP" +saveSlot.ToString());
 		//mainCam = GameObject.FindWithTag ("MainCamera").transform;
 		//mainCam.GetComponent<ARPGcamera>().target = respawn.transform;

@@ -113,7 +113,7 @@ public class StatusWindowC : MonoBehaviour {
 			}
 			if (GUI.Button ( new Rect(200,130,25,25), "+") && stPoint > 0) {
 				GetComponent<StatusC>().matk += 1;
-				GetComponent<StatusC>().maxMana += 3;
+				GetComponent<StatusC>().MaxMana += 3;
 				GetComponent<StatusC>().statusPoint -= 1;
 				GetComponent<StatusC>().CalculateStatus();
 			}

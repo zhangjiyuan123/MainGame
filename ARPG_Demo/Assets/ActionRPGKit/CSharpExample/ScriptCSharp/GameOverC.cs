@@ -57,8 +57,8 @@ public class GameOverC : MonoBehaviour {
 			respawn.GetComponent<StatusC>().MaxHealth = PlayerPrefs.GetInt("TempPlayerMaxHP");
 			//respawn.GetComponent<StatusC>().health = PlayerPrefs.GetInt("PlayerHP");
 			respawn.GetComponent<StatusC>().Health = PlayerPrefs.GetInt("TempPlayerMaxHP");
-			respawn.GetComponent<StatusC>().maxMana = PlayerPrefs.GetInt("TempPlayerMaxMP");
-			respawn.GetComponent<StatusC>().mana = PlayerPrefs.GetInt("TempPlayerMaxMP");	
+			respawn.GetComponent<StatusC>().MaxMana = PlayerPrefs.GetInt("TempPlayerMaxMP");
+			respawn.GetComponent<StatusC>().Mana = PlayerPrefs.GetInt("TempPlayerMaxMP");	
 			respawn.GetComponent<StatusC>().statusPoint = PlayerPrefs.GetInt("TempPlayerSTP");
 			mainCam = GameObject.FindWithTag ("MainCamera").transform;
 			mainCam.GetComponent<ARPGcameraC>().target = respawn.transform;
