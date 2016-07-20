@@ -77,13 +77,13 @@ public class SaveLoadC : MonoBehaviour {
 		PlayerPrefs.SetFloat("PlayerY", player.transform.position.y);
 		PlayerPrefs.SetFloat("PlayerZ", player.transform.position.z);
 		PlayerPrefs.SetInt("PlayerID" +saveSlot.ToString(), player.GetComponent<StatusC>().characterId);
-		PlayerPrefs.SetInt("PlayerLevel" +saveSlot.ToString(), player.GetComponent<StatusC>().level);
+		PlayerPrefs.SetInt("PlayerLevel" +saveSlot.ToString(), player.GetComponent<StatusC>().Level);
 		PlayerPrefs.SetInt("PlayerATK" +saveSlot.ToString(), player.GetComponent<StatusC>().atk);
 		PlayerPrefs.SetInt("PlayerDEF" +saveSlot.ToString(), player.GetComponent<StatusC>().def);
 		PlayerPrefs.SetInt("PlayerMATK" +saveSlot.ToString(), player.GetComponent<StatusC>().matk);
 		PlayerPrefs.SetInt("PlayerMDEF" +saveSlot.ToString(), player.GetComponent<StatusC>().mdef);
-		PlayerPrefs.SetInt("PlayerEXP" +saveSlot.ToString(), player.GetComponent<StatusC>().exp);
-		PlayerPrefs.SetInt("PlayerMaxEXP" +saveSlot.ToString(), player.GetComponent<StatusC>().maxExp);
+		PlayerPrefs.SetInt("PlayerEXP" +saveSlot.ToString(), player.GetComponent<StatusC>().Exp);
+		PlayerPrefs.SetInt("PlayerMaxEXP" +saveSlot.ToString(), player.GetComponent<StatusC>().MaxExp);
 		PlayerPrefs.SetInt("PlayerMaxHP" +saveSlot.ToString(), player.GetComponent<StatusC>().MaxHealth);
 		PlayerPrefs.SetInt("PlayerHP" +saveSlot.ToString(), player.GetComponent<StatusC>().Health);
 		PlayerPrefs.SetInt("PlayerMaxMP" +saveSlot.ToString(), player.GetComponent<StatusC>().MaxMana);
@@ -157,14 +157,14 @@ public class SaveLoadC : MonoBehaviour {
 		respawn.transform.position = lastPosition;
 		//GameObject respawn = Instantiate(player, lastPosition , transform.rotation) as GameObject;
 
-		respawn.GetComponent<StatusC>().level = PlayerPrefs.GetInt("PlayerLevel" +saveSlot.ToString());
+		respawn.GetComponent<StatusC>().Level = PlayerPrefs.GetInt("PlayerLevel" +saveSlot.ToString());
 		respawn.GetComponent<StatusC>().atk = PlayerPrefs.GetInt("PlayerATK" +saveSlot.ToString());
 		respawn.GetComponent<StatusC>().def = PlayerPrefs.GetInt("PlayerDEF" +saveSlot.ToString());
 		respawn.GetComponent<StatusC>().matk = PlayerPrefs.GetInt("PlayerMATK" +saveSlot.ToString());
 		respawn.GetComponent<StatusC>().mdef = PlayerPrefs.GetInt("PlayerMDEF" +saveSlot.ToString());
 		respawn.GetComponent<StatusC>().mdef = PlayerPrefs.GetInt("PlayerMDEF" +saveSlot.ToString());
-		respawn.GetComponent<StatusC>().exp = PlayerPrefs.GetInt("PlayerEXP" +saveSlot.ToString());
-		respawn.GetComponent<StatusC>().maxExp = PlayerPrefs.GetInt("PlayerMaxEXP" +saveSlot.ToString());
+		respawn.GetComponent<StatusC>().Exp = PlayerPrefs.GetInt("PlayerEXP" +saveSlot.ToString());
+		respawn.GetComponent<StatusC>().MaxExp = PlayerPrefs.GetInt("PlayerMaxEXP" +saveSlot.ToString());
 		respawn.GetComponent<StatusC>().MaxHealth = PlayerPrefs.GetInt("PlayerMaxHP" +saveSlot.ToString());
 		respawn.GetComponent<StatusC>().Health = PlayerPrefs.GetInt("PlayerHP" +saveSlot.ToString());
 		//respawn.GetComponent<StatusC>().health = PlayerPrefs.GetInt("PlayerMaxHP");
@@ -262,14 +262,14 @@ public class SaveLoadC : MonoBehaviour {
 	//Function LoadGame is unlike the Function LoadData.
 	//This Function will not spawn new Player.
 	void  LoadGame (){
-		player.GetComponent<StatusC>().level = PlayerPrefs.GetInt("PlayerLevel" +saveSlot.ToString());
+		player.GetComponent<StatusC>().Level = PlayerPrefs.GetInt("PlayerLevel" +saveSlot.ToString());
 		player.GetComponent<StatusC>().atk = PlayerPrefs.GetInt("PlayerATK" +saveSlot.ToString());
 		player.GetComponent<StatusC>().def = PlayerPrefs.GetInt("PlayerDEF" +saveSlot.ToString());
 		player.GetComponent<StatusC>().matk = PlayerPrefs.GetInt("PlayerMATK" +saveSlot.ToString());
 		player.GetComponent<StatusC>().mdef = PlayerPrefs.GetInt("PlayerMDEF" +saveSlot.ToString());
 		player.GetComponent<StatusC>().mdef = PlayerPrefs.GetInt("PlayerMDEF" +saveSlot.ToString());
-		player.GetComponent<StatusC>().exp = PlayerPrefs.GetInt("PlayerEXP" +saveSlot.ToString());
-		player.GetComponent<StatusC>().maxExp = PlayerPrefs.GetInt("PlayerMaxEXP" +saveSlot.ToString());
+		player.GetComponent<StatusC>().Exp = PlayerPrefs.GetInt("PlayerEXP" +saveSlot.ToString());
+		player.GetComponent<StatusC>().MaxExp = PlayerPrefs.GetInt("PlayerMaxEXP" +saveSlot.ToString());
 		player.GetComponent<StatusC>().MaxHealth = PlayerPrefs.GetInt("PlayerMaxHP" +saveSlot.ToString());
 		player.GetComponent<StatusC>().Health = PlayerPrefs.GetInt("PlayerMaxHP" +saveSlot.ToString());
 		player.GetComponent<StatusC>().MaxMana = PlayerPrefs.GetInt("PlayerMaxMP" +saveSlot.ToString());

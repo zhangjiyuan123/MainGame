@@ -437,7 +437,7 @@ public class AttackTriggerC : MonoBehaviour
                 }
                 else
                 {
-                     mAnimator.SetBool("runnning", true);
+                     mAnimator.SetBool("running", true);
                   //  Debug.Log("4");
                  // if(mAnimator.GetCurrentAnimatorClipInfo(0).)
                    // mAnimator.Play("running");

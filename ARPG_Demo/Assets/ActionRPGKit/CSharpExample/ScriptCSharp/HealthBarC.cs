@@ -39,9 +39,9 @@ public class HealthBarC : MonoBehaviour {
 		float hp = player.GetComponent<StatusC>().Health * 100 / maxHp *barMultiply;
 		float maxMp = player.GetComponent<StatusC>().MaxMana;
 		float mp = player.GetComponent<StatusC>().Mana * 100 / maxMp *barMultiply;
-		float maxExp = player.GetComponent<StatusC>().maxExp;
-		float exp = player.GetComponent<StatusC>().exp * 100 / maxExp *barMultiply;
-		float lv = player.GetComponent<StatusC>().level;
+		float maxExp = player.GetComponent<StatusC>().MaxExp;
+		float exp = player.GetComponent<StatusC>().Exp * 100 / maxExp *barMultiply;
+		float lv = player.GetComponent<StatusC>().Level;
 		
 		int currentHp = player.GetComponent<StatusC>().Health;
 		int currentMp = player.GetComponent<StatusC>().Mana;

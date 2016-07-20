@@ -80,13 +80,13 @@ public class StatusWindowC : MonoBehaviour {
 			OnOffMenu();
 		}
 		//Status
-		int lv = stat.level;
+		int lv = stat.Level;
 		int atk = stat.atk;
 		int def = stat.def;
 		int matk = stat.matk;
 		int mdef = stat.mdef;
-		int exp = stat.exp;
-		int next = stat.maxExp - exp;
+		int exp = stat.Exp;
+		int next = stat.MaxExp - exp;
 		int stPoint = stat.statusPoint;
 		
 		GUI.Label ( new Rect(30, 40, 100, 50), lv.ToString() , textStyle2);

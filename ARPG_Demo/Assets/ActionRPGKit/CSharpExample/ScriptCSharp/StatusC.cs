@@ -1,19 +1,29 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// 
+/// </summary>
+/// <param name="data"></param>
+public delegate void OnUpdateDataValue(int data);
+/// <summary>
+/// 数据变更的监听
+/// </summary>
+/// <param name="cur">当前数据</param>
+/// <param name="ori">原始数据</param>
 public delegate void OnChangeDataValue(int cur, int ori);
 
 public class StatusC : MonoBehaviour {
 
 	public string characterName = "";
 	public int characterId = 0;
-	public int level = 1;
-	public int atk = 0;
+    private int level = 1;
+    public int atk = 0;
 	public int def = 0;
 	public int matk = 0;
 	public int mdef = 0;
-	public int exp = 0;
-	public int maxExp = 100;
+    private int exp = 0;
+    private int maxExp = 100;
     private int maxHealth = 100;
     private int health = 100;
     private int maxMana = 100;
@@ -148,6 +158,9 @@ public class StatusC : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// 魔法值变化监听
+    /// </summary>
     public OnChangeDataValue onChangeMp = null;
 
     /// <summary>
@@ -163,6 +176,10 @@ public class StatusC : MonoBehaviour {
         set
         {
             maxMana = value;
+            if (onChangeMp != null)
+            {
+                onChangeMp(mana, maxMana);
+            }
         }
     }
     /// <summary>
@@ -178,6 +195,76 @@ public class StatusC : MonoBehaviour {
         set
         {
             mana = value;
+            if (onChangeMp != null)
+            {
+                onChangeMp(mana, maxMana);
+            }
+        }
+    }
+    /// <summary>
+    /// 经验变化
+    /// </summary>
+    public OnChangeDataValue onChangeExp = null;
+    /// <summary>
+    /// 杀怪得到的当前总经验
+    /// </summary>
+    public int Exp
+    {
+        get
+        {
+            return exp;
+        }
+
+        set
+        {
+            exp = value;
+            if (onChangeExp != null)
+            {
+                onChangeExp(exp, maxExp);
+            }
+        }
+    }
+    
+
+    /// <summary>
+    /// 升级需要的经验
+    /// </summary>
+
+    public int MaxExp
+    {
+        get
+        {
+            return maxExp;
+        }
+
+        set
+        {
+            maxExp = value;
+            if (onChangeExp != null)
+            {
+                onChangeExp(exp, maxExp);
+            }
+        }
+    }
+
+    public OnUpdateDataValue onUpdateLevel=null;
+    /// <summary>
+    /// 等级变化提示
+    /// </summary>
+    public int Level
+    {
+        get
+        {
+            return level;
+        }
+
+        set
+        {
+            level = value;
+            if (onUpdateLevel != null)
+            {
+                onUpdateLevel(level);
+            }
         }
     }
 
@@ -266,20 +353,20 @@ public class StatusC : MonoBehaviour {
 	}
 
 	public void  gainEXP ( int gain  ){
-		exp += gain;
-		if(exp >= maxExp){
-			int remain = exp - maxExp;
+		Exp += gain;
+		if(Exp >= MaxExp){
+			int remain = Exp - MaxExp;
 			LevelUp(remain);
 		}
 	}
 	
 	public void  LevelUp ( int remainingEXP  ){
-		exp = 0;
-		exp += remainingEXP;
-		level++;
+		Exp = 0;
+		Exp += remainingEXP;
+		Level++;
 		statusPoint += 5;
 		//Extend the Max EXP, Max Health and Max Mana
-		maxExp = 125 * maxExp  / 100;
+		MaxExp = 125 * MaxExp  / 100;
 		MaxHealth += 20;
 		MaxMana += 10;
 		//Recover Health and Mana
@@ -287,7 +374,7 @@ public class StatusC : MonoBehaviour {
 		Mana = MaxMana;
 		gainEXP(0);
 		if(GetComponent<SkillWindowC>()){
-			GetComponent<SkillWindowC>().LearnSkillByLevel(level);
+			GetComponent<SkillWindowC>().LearnSkillByLevel(Level);
 		}
 	}
 	
@@ -295,13 +382,13 @@ public class StatusC : MonoBehaviour {
 		PlayerPrefs.SetInt("PreviousSave", 10);
 		PlayerPrefs.SetString("TempName", characterName);
 		PlayerPrefs.SetInt("TempID", characterId);
-		PlayerPrefs.SetInt("TempPlayerLevel", level);
+		PlayerPrefs.SetInt("TempPlayerLevel", Level);
 		PlayerPrefs.SetInt("TempPlayerATK", atk);
 		PlayerPrefs.SetInt("TempPlayerDEF", def);
 		PlayerPrefs.SetInt("TempPlayerMATK", matk);
 		PlayerPrefs.SetInt("TempPlayerMDEF", mdef);
-		PlayerPrefs.SetInt("TempPlayerEXP", exp);
-		PlayerPrefs.SetInt("TempPlayerMaxEXP", maxExp);
+		PlayerPrefs.SetInt("TempPlayerEXP", Exp);
+		PlayerPrefs.SetInt("TempPlayerMaxEXP", MaxExp);
 		PlayerPrefs.SetInt("TempPlayerMaxHP", MaxHealth);
 		PlayerPrefs.SetInt("TempPlayerMaxMP", MaxMana);
 		PlayerPrefs.SetInt("TempPlayerSTP", statusPoint);

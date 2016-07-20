@@ -44,7 +44,7 @@ public class GameOverC : MonoBehaviour {
 			lastPosition.y = PlayerPrefs.GetFloat("PlayerY") + 0.2f;
 			lastPosition.z = PlayerPrefs.GetFloat("PlayerZ");
 			GameObject respawn = Instantiate(player, lastPosition , transform.rotation) as GameObject;
-			respawn.GetComponent<StatusC>().level = PlayerPrefs.GetInt("TempPlayerLevel");
+			respawn.GetComponent<StatusC>().Level = PlayerPrefs.GetInt("TempPlayerLevel");
 			respawn.GetComponent<StatusC>().characterId = PlayerPrefs.GetInt("TempID");
 			respawn.GetComponent<StatusC>().characterName = PlayerPrefs.GetString("TempName");
 			respawn.GetComponent<StatusC>().atk = PlayerPrefs.GetInt("TempPlayerATK");
@@ -52,8 +52,8 @@ public class GameOverC : MonoBehaviour {
 			respawn.GetComponent<StatusC>().matk = PlayerPrefs.GetInt("TempPlayerMATK");
 			respawn.GetComponent<StatusC>().mdef = PlayerPrefs.GetInt("TempPlayerMDEF");
 			respawn.GetComponent<StatusC>().mdef = PlayerPrefs.GetInt("TempPlayerMDEF");
-			respawn.GetComponent<StatusC>().exp = PlayerPrefs.GetInt("TempPlayerEXP");
-			respawn.GetComponent<StatusC>().maxExp = PlayerPrefs.GetInt("TempPlayerMaxEXP");
+			respawn.GetComponent<StatusC>().Exp = PlayerPrefs.GetInt("TempPlayerEXP");
+			respawn.GetComponent<StatusC>().MaxExp = PlayerPrefs.GetInt("TempPlayerMaxEXP");
 			respawn.GetComponent<StatusC>().MaxHealth = PlayerPrefs.GetInt("TempPlayerMaxHP");
 			//respawn.GetComponent<StatusC>().health = PlayerPrefs.GetInt("PlayerHP");
 			respawn.GetComponent<StatusC>().Health = PlayerPrefs.GetInt("TempPlayerMaxHP");
