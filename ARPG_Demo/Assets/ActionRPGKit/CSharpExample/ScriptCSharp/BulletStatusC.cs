@@ -64,18 +64,22 @@ public class BulletStatusC : MonoBehaviour {
 		//GameObject clone1 = new GameObject();
 		if(shooterTag == "Player" && other.tag == "Enemy"){	  
 			Transform dmgPop = Instantiate(Popup, other.transform.position , transform.rotation) as Transform;
-			
-			if(AttackType == AtkType.Physic){
-				popDamage = other.GetComponent<StatusC>().OnDamage(totalDamage , (int)element);
+		    StatusC otherStatus = other.GetComponent<StatusC>();
+
+            if (AttackType == AtkType.Physic){
+				popDamage = otherStatus.OnDamage(totalDamage , (int)element);
 			}else{
-				popDamage = other.GetComponent<StatusC>().OnMagicDamage(totalDamage , (int)element);
+				popDamage = otherStatus.OnMagicDamage(totalDamage , (int)element);
 			}
-			if(shooter && shooter.GetComponent<ShowEnemyHealthC>()){
-	    		shooter.GetComponent<ShowEnemyHealthC>().GetHP(other.GetComponent<StatusC>().MaxHealth , other.gameObject , other.name);
-	    	}
-			dmgPop.GetComponent<DamagePopupC>().damage = popDamage;	
-			
-			if(hitEffect){
+            //if(shooter && shooter.GetComponent<ShowEnemyHealthC>()){
+            if(shooter && VMMonsterPhoto.instance)
+            {
+                //shooter.GetComponent<ShowEnemyHealthC>().GetHP(other.GetComponent<StatusC>().MaxHealth , other.gameObject , other.name);
+                VMMonsterPhoto.instance.ChangeMonsterHp(otherStatus);
+			}
+		    if (dmgPop != null) dmgPop.GetComponent<DamagePopupC>().damage = popDamage;
+
+		    if(hitEffect){
 				Instantiate(hitEffect, transform.position , transform.rotation);
 			}
 			if(flinch){

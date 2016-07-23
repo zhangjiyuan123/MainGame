@@ -10,6 +10,11 @@ public class VMSkill : MonoBehaviour
     void Awake()
     {
         instance = this;
+        InitView();
+    }
+
+    void InitView()
+    {
         BtnsSkill = new List<Button>(3);
         for (int i = 0; i < BtnsSkill.Capacity; i++)
         {
@@ -17,11 +22,6 @@ public class VMSkill : MonoBehaviour
             var btnTs = transform.FindChild(tsName);
             BtnsSkill.Add(btnTs.GetComponent<Button>());
         }
-    }
-
-    void OnDisable()
-    {
-        
     }
 	// Use this for initialization
 	void Start () {

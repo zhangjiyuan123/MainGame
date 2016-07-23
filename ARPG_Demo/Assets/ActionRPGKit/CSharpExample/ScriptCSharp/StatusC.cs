@@ -710,7 +710,5 @@ public class StatusC : MonoBehaviour {
 			//Increase Magic Attack
 			StartCoroutine(OnFaith(amount , dur));
 		}
-		
-		
 	}
 }
